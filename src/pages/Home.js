@@ -25,7 +25,7 @@ export default function Home() {
   useEffect(() => {
     getNotes();
     // eslint-disable-next-line
-  }, [notes]);
+  }, []);
 
   useEffect(() => {
     if (!localStorage.getItem("auth-token")) {
