@@ -17,7 +17,7 @@ export default function Home() {
   };
 
   const nContext = useContext(noteContext);
-  const { notes, getNotes } = nContext;
+  const { notes, getNotes, reload } = nContext;
   const uContext = useContext(userContext);
   const { user } = uContext;
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function Home() {
   useEffect(() => {
     getNotes();
     // eslint-disable-next-line
-  }, []);
+  }, [reload]);
 
   useEffect(() => {
     if (!localStorage.getItem("auth-token")) {

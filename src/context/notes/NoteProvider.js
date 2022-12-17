@@ -5,6 +5,7 @@ const NoteProvider = (props) => {
   const host = process.env.REACT_APP_HOST;
   const authToken = localStorage.getItem("auth-token");
   const [notes, setNotes] = useState([]);
+  const [reload, setReload] = useState(0);
 
   // 1. to get all notes
   const getNotes = async () => {
@@ -44,6 +45,7 @@ const NoteProvider = (props) => {
         tag: tag,
       };
       setNotes(notes.concat(note));
+      setReload(!reload);
     }
   };
 
@@ -70,6 +72,7 @@ const NoteProvider = (props) => {
         }
       }
       setNotes(notes);
+      setReload(!reload);
     }
   };
 
@@ -91,12 +94,13 @@ const NoteProvider = (props) => {
         return note._id !== id;
       });
       setNotes(newNotes);
+      setReload(!reload);
     }
   };
 
   return (
     <noteContext.Provider
-      value={{ notes, getNotes, addNote, editNote, deletNote }}
+      value={{ notes, getNotes, addNote, editNote, deletNote, reload }}
     >
       {props.children}
     </noteContext.Provider>
