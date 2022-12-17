@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import userContext from "../context/user/userContext";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function Navbar() {
   let location = useLocation();
+
+  const uContext = useContext(userContext);
+  const { user } = uContext;
+  let content;
+
+  if (user) {
+    content = (
+      <div className="is-flex">
+        <b className="mr-3"> {user.name},</b>
+        <Link to="/profile">
+          <FaUserCircle size={"30px"} />
+        </Link>
+      </div>
+    );
+  } else {
+    content = (
+      <div className="buttons">
+        <Link to="/login" className="button is-small is-info">
+          Login
+        </Link>
+        <Link to="/signup" className="button is-small is-info">
+          Signup
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <>
       <nav
@@ -30,14 +59,6 @@ export default function Navbar() {
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
             <Link
-              to="/"
-              className={`navbar-item ${
-                location.pathname === "/" ? "is-tab is-active" : ""
-              }`}
-            >
-              Home
-            </Link>
-            <Link
               to="/about"
               className={`navbar-item ${
                 location.pathname === "/about" ? "is-tab is-active" : ""
@@ -48,14 +69,7 @@ export default function Navbar() {
           </div>
 
           <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <a className="button is-small is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a className="button is-small is-light">Log in</a>
-              </div>
-            </div>
+            <div className="navbar-item">{content}</div>
           </div>
         </div>
       </nav>
