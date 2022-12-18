@@ -37,6 +37,7 @@ const NoteProvider = (props) => {
       });
 
       const json = await response.json();
+      console.log(json);
 
       // to add note in client
       const note = {
@@ -62,6 +63,7 @@ const NoteProvider = (props) => {
         body: JSON.stringify({ id, title, description, tag }),
       });
       const json = await response.json();
+      console.log(json);
 
       // update in client
       for (let i = 0; i < notes.length; i++) {
@@ -88,6 +90,7 @@ const NoteProvider = (props) => {
         },
       });
       const json = await response.json();
+      console.log(json);
 
       // delete from client
       const newNotes = notes.filter((note) => {

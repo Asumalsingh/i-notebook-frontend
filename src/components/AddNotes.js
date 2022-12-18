@@ -23,7 +23,7 @@ export default function AddNotes() {
     <>
       <form action="" onSubmit={handleAddNote}>
         <div className="field">
-          <label className="label">Title*</label>
+          <label className="label">Titlel*</label>
           <div className="control">
             <input
               className="input"

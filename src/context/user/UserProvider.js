@@ -22,6 +22,7 @@ const UserProvider = (props) => {
     if (localStorage.getItem("auth-token")) {
       getUser();
     }
+    // eslint-disable-next-line
   }, [localStorage.getItem("auth-token")]);
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import userContext from "../context/user/userContext";
 import { FaUserCircle } from "react-icons/fa";
@@ -43,7 +43,7 @@ export default function Navbar() {
           <Link to="/" className={`navbar-item`}>
             <b> I-notebook</b>
           </Link>
-          <a
+          <div
             role="button"
             className="navbar-burger"
             aria-label="menu"
@@ -53,7 +53,7 @@ export default function Navbar() {
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
+          </div>
         </div>
 
         <div id="navbarBasicExample" className="navbar-menu">

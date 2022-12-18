@@ -3,7 +3,6 @@ import InputModal from "../components/InputModal";
 import NoteItem from "../components/NoteItem";
 import noteContext from "../context/notes/noteContext";
 import { FaPlus } from "react-icons/fa";
-import userContext from "../context/user/userContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
@@ -18,8 +17,6 @@ export default function Home() {
 
   const nContext = useContext(noteContext);
   const { notes, getNotes, reload } = nContext;
-  const uContext = useContext(userContext);
-  const { user } = uContext;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,6 +28,7 @@ export default function Home() {
     if (!localStorage.getItem("auth-token")) {
       navigate("/login");
     }
+    // eslint-disable-next-line
   }, []);
 
   const hendleAddNote = () => {

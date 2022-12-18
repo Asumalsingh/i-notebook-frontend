@@ -19,6 +19,7 @@ export default function InputModal({
       description: fieldContent.description,
       tag: fieldContent.tag,
     });
+    // eslint-disable-next-line
   }, [fieldContent.title]);
 
   const context = useContext(noteContext);
