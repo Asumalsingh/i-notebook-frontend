@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup() {
-  const host = "http://localhost:5000";
+  const host = process.env.REACT_APP_HOST;
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -23,7 +23,7 @@ export default function Signup() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name : credentials.name,
+        name: credentials.name,
         email: credentials.email,
         password: credentials.password,
       }),
