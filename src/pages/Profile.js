@@ -13,7 +13,7 @@ export default function Profile() {
   };
 
   return (
-    <>
+    <div className="py-4">
       <h1 className="title is-5"> Profile</h1>
       <p>Name : {user ? user.name : ""} </p>
       <p>Email : {user ? user.email : ""} </p>
@@ -21,6 +21,6 @@ export default function Profile() {
       <button className="button is-danger is-small mt-4" onClick={handleLogout}>
         Logout
       </button>
-    </>
+    </div>
   );
 }

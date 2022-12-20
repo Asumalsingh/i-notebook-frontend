@@ -4,6 +4,7 @@ import NoteItem from "../components/NoteItem";
 import noteContext from "../context/notes/noteContext";
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { Pagination } from "@mantine/core";
 
 export default function Home() {
   const [modalStatus, setModalStatus] = useState("");
@@ -14,15 +15,11 @@ export default function Home() {
     saveBtnVisible: "is-hidden",
     addBtnVisible: "",
   };
+  const [activePage, setActivePage] = useState(1);
 
   const nContext = useContext(noteContext);
-  const { notes, getNotes, reload } = nContext;
+  const { notes, setQuery, setPage, totalPage } = nContext;
   const navigate = useNavigate();
-
-  useEffect(() => {
-    getNotes();
-    // eslint-disable-next-line
-  }, [reload]);
 
   useEffect(() => {
     if (!localStorage.getItem("auth-token")) {
@@ -31,35 +28,65 @@ export default function Home() {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    setPage(activePage);
+    // eslint-disable-next-line
+  }, [activePage]);
+
   const hendleAddNote = () => {
     setModalStatus("is-active");
   };
 
+  const onChangeQuery = (e) => {
+    if (e.target.value.length > 1) {
+      setQuery(e.target.value);
+    } else {
+      setQuery("");
+    }
+  };
+
   return (
     <>
-      <div>
+      <div className="py-3">
+        <div className="field has-addons" style={{ maxWidth: "500px" }}>
+          <div className="control is-expanded">
+            <input
+              className="input"
+              type="text"
+              placeholder="Search here . . ."
+              onChange={onChangeQuery}
+            />
+          </div>
+          <div className="control">
+            <div className="button is-info">Search</div>
+          </div>
+        </div>
         <div className=" mb-4 ">
           <button className="button is-primary " onClick={hendleAddNote}>
             <FaPlus /> &nbsp;Add note
           </button>
           <p className="">Access your note at anytime and anywhere</p>
         </div>
-
         <InputModal
           modalStatus={modalStatus}
           setModalStatus={setModalStatus}
           fieldContent={fieldContent}
         />
-
         <div className="columns is-flex-wrap-wrap">
           {notes.map((note) => {
             return (
-              <div className="column is-4" key={note._id}>
+              <div className="column is-6" key={note._id}>
                 <NoteItem noteData={note} />
               </div>
             );
           })}
         </div>
+
+        <Pagination
+          page={activePage}
+          onChange={setActivePage}
+          total={totalPage}
+        />
       </div>
     </>
   );

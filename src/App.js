@@ -17,7 +17,7 @@ function App() {
           <Navbar />
           <div
             className="container is-max-desktop px-3"
-            style={{ marginTop: "70px" }}
+            style={{ marginTop: "54px" }}
           >
             <Routes>
               <Route path="/" element={<Home />} />

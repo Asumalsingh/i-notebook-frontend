@@ -1,15 +1,18 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import userContext from "../context/user/userContext";
 import { FaUserCircle } from "react-icons/fa";
 
 export default function Navbar() {
+  const [navMobile, setNavMovile] = useState("");
   let location = useLocation();
-
   const uContext = useContext(userContext);
   const { user } = uContext;
   let content;
 
+  const handleMobileNav = () => {
+    navMobile === "" ? setNavMovile("is-active") : setNavMovile("");
+  };
   if (user) {
     content = (
       <div className="is-flex">
@@ -35,7 +38,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className="navbar is-light is-fixed-top has-shadow"
+        className="navbar is-transparent is-fixed-top "
         role="navigation"
         aria-label="main navigation"
       >
@@ -45,10 +48,11 @@ export default function Navbar() {
           </Link>
           <div
             role="button"
-            className="navbar-burger"
+            className={`navbar-burger  ${navMobile}`}
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
+            onClick={handleMobileNav}
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -56,7 +60,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div id="navbarBasicExample" className="navbar-menu">
+        <div id="navbarBasicExample" className={`navbar-menu  ${navMobile}`}>
           <div className="navbar-start">
             <Link
               to="/about"
