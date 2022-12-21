@@ -88,6 +88,7 @@ export default function InputModal({
             <div className="control">
               <textarea
                 className="textarea"
+                rows="2"
                 required
                 defaultValue={fieldContent.description}
                 placeholder="Description"

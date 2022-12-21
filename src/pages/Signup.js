@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import host from "../dbConfig";
 
 export default function Signup() {
-  const host = process.env.REACT_APP_HOST;
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",

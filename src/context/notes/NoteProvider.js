@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import noteContext from "./noteContext";
+import host from "../../dbConfig";
 
 const NoteProvider = (props) => {
-  const host = process.env.REACT_APP_HOST;
   const authToken = localStorage.getItem("auth-token");
   const [notes, setNotes] = useState([]);
   const [page, setPage] = useState(1);

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import InputModal from "../components/InputModal";
 import NoteItem from "../components/NoteItem";
 import noteContext from "../context/notes/noteContext";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "@mantine/core";
 
@@ -49,16 +49,16 @@ export default function Home() {
     <>
       <div className="py-3">
         <div className="field has-addons" style={{ maxWidth: "500px" }}>
-          <div className="control is-expanded">
+          <div className="control is-expanded  has-icons-right">
             <input
               className="input"
               type="text"
               placeholder="Search here . . ."
               onChange={onChangeQuery}
             />
-          </div>
-          <div className="control">
-            <div className="button is-info">Search</div>
+            <span className="icon is-right">
+              <FaSearch />
+            </span>
           </div>
         </div>
         <div className=" mb-4 ">

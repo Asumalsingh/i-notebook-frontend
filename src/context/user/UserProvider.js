@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import userContext from "./userContext";
+import host from "../../dbConfig";
 
 const UserProvider = (props) => {
-  const host = process.env.REACT_APP_HOST;
   const [user, setUser] = useState(null);
 
   const getUser = async () => {

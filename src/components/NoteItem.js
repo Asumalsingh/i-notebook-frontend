@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import noteContext from "../context/notes/noteContext";
 import InputModal from "./InputModal";
+import { FaShareSquare } from "react-icons/fa";
 
 export default function NoteItem({ noteData }) {
   const [modalStatus, setModalStatus] = useState("");
@@ -46,21 +47,26 @@ export default function NoteItem({ noteData }) {
         <span style={{ fontSize: "0.7rem", color: "hsl(0, 0%, 71%)" }}>
           Last Updated: {date}
         </span>
-        <div className="is-flex mt-3">
-          <button
-            className="button is-small mr-4"
-            onClick={() => {
-              handleEdit(_id);
-            }}
-          >
-            Edit
-          </button>
-          <button
-            className="button is-small is-danger"
-            onClick={() => handleDelete(_id)}
-          >
-            Delete
-          </button>
+        <div className="mt-3 is-flex is-justify-content-space-between">
+          <div className="is-flex">
+            <button
+              className="button is-small mr-4"
+              onClick={() => {
+                handleEdit(_id);
+              }}
+            >
+              Edit
+            </button>
+            <button
+              className="button is-small is-danger"
+              onClick={() => handleDelete(_id)}
+            >
+              Delete
+            </button>
+          </div>
+          <div className="is-flex is-align-items-end">
+            <FaShareSquare style={{ cursor: "pointer" }} size={"22px"} />
+          </div>
         </div>
       </div>
     </>
