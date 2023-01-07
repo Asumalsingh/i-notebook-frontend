@@ -9,7 +9,7 @@ export default function Profile() {
 
   const handleLogout = () => {
     localStorage.removeItem("auth-token");
-    navigate("/login");
+    window.location.replace("/login");
   };
 
   return (

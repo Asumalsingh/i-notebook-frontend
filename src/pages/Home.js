@@ -5,7 +5,6 @@ import noteContext from "../context/notes/noteContext";
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Pagination } from "@mantine/core";
-
 export default function Home() {
   const [modalStatus, setModalStatus] = useState("");
   const fieldContent = {

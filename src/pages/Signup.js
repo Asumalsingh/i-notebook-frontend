@@ -33,7 +33,7 @@ export default function Signup() {
     if (json.success) {
       // redirect to home
       localStorage.setItem("auth-token", json.authToken);
-      navigate("/");
+      window.location.replace("/");
     } else {
       alert(json.errors[0].msg);
     }

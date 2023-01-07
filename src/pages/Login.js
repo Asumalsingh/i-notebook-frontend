@@ -26,7 +26,7 @@ export default function Login() {
     if (json.success) {
       // redirect to home
       localStorage.setItem("auth-token", json.authToken);
-      navigate("/");
+      window.location.replace("/");
     } else {
       alert(json.error);
     }
