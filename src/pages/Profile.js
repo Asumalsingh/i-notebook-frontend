@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import userContext from "../context/user/userContext";
-import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const uContext = useContext(userContext);
   const { user } = uContext;
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("auth-token");

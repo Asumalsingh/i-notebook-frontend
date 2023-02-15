@@ -28,9 +28,9 @@ export default function Navbar() {
         <Link to="/login" className="button is-small is-info">
           Login
         </Link>
-        <Link to="/signup" className="button is-small is-info">
+        {/* <Link to="/signup" className="button is-small is-info">
           Signup
-        </Link>
+        </Link> */}
       </div>
     );
   }

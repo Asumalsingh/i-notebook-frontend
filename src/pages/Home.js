@@ -58,6 +58,7 @@ export default function Home() {
             <span className="icon is-right">
               <FaSearch />
             </span>
+            
           </div>
         </div>
         <div className=" mb-4 ">

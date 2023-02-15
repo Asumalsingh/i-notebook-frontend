@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import userContext from "./userContext";
 import host from "../../dbConfig";
-
 const UserProvider = (props) => {
   const [user, setUser] = useState(null);
 

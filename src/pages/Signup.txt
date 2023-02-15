@@ -1,6 +1,11 @@
+// Commented desabled email password login
+
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import host from "../dbConfig";
+import { GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
+import SigninWithGoogle from "../components/SigninWithGoogle";
 
 export default function Signup() {
   const [credentials, setCredentials] = useState({
@@ -8,14 +13,12 @@ export default function Signup() {
     email: "",
     password: "",
   });
-  const [warning, setWarning] = useState("is-hidden");
 
-  const navigate = useNavigate();
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const handleSingnup = async (e) => {
+  const handleEmailSignup = async (e) => {
     e.preventDefault();
     const response = await fetch(`${host}/api/auth/createuser`, {
       method: "POST",
@@ -40,16 +43,10 @@ export default function Signup() {
   };
   return (
     <div className="column is-6">
-      <div className={`notification is-danger is-light p-2 ${warning}`}>
-        <button
-          className="delete is-medium"
-          onClick={() => {
-            setWarning("is-hidden");
-          }}
-        ></button>
-        Title should be of 3 length and description should be of 5 length
+      <div className="is-flex is-justify-content-center">
+        <SigninWithGoogle />
       </div>
-      <form action="" onSubmit={handleSingnup}>
+      <form action="" onSubmit={handleEmailSignup}>
         <div className="field">
           <label htmlFor="" className="label">
             Name*

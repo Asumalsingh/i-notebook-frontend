@@ -131,7 +131,7 @@ export default function NoteItem({ noteData }) {
                           <div key={index}>
                             <div className="dropdown-item is-flex is-justify-content-space-between">
                               <span>{e.email}</span>
-                              <span>{e.access}</span>
+                              <span className="ml-5">{e.access}</span>
                             </div>
                             <hr className="dropdown-divider" />
                           </div>

@@ -5,7 +5,6 @@ import About from "./pages/About";
 import Navbar from "./components/Navbar";
 import NoteProvider from "./context/notes/NoteProvider";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import UserProvider from "./context/user/UserProvider";
 import Profile from "./pages/Profile";
 
@@ -23,7 +22,6 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
             </Routes>
           </div>
