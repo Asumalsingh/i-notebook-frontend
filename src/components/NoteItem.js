@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import noteContext from "../context/notes/noteContext";
 import InputModal from "./InputModal";
-import { FaShareAlt, FaUsers, FaRegEdit } from "react-icons/fa";
+import { FaShareAlt, FaUsers } from "react-icons/fa";
 import SharingInput from "./SharingInput";
 import userContext from "../context/user/userContext";
 
@@ -33,6 +33,7 @@ export default function NoteItem({ noteData }) {
         break;
       }
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleEdit = (id) => {
